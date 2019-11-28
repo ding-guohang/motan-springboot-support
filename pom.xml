@@ -6,14 +6,20 @@
 
     <groupId>com.y.motan</groupId>
     <artifactId>motan-springboot-support</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>core</module>
+        <module>demo</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.source.jdk>1.8</java.source.jdk>
-        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
         <spring-framework.version>4.3.10.RELEASE</spring-framework.version>
         <motan.version>1.1.6</motan.version>
+        <logback.version>1.2.3</logback.version>
     </properties>
 
     <dependencyManagement>
@@ -35,13 +41,23 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>4.1</version>
             </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.7.25</version>
+            </dependency>
 
             <!-- for motan -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring-framework.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.weibo</groupId>
                 <artifactId>motan-core</artifactId>
@@ -51,6 +67,12 @@
                 <groupId>com.weibo</groupId>
                 <artifactId>motan-springsupport</artifactId>
                 <version>${motan.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.weibo</groupId>
@@ -66,6 +88,12 @@
                 <groupId>com.weibo</groupId>
                 <artifactId>motan-registry-zookeeper</artifactId>
                 <version>${motan.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.weibo</groupId>
@@ -162,26 +190,10 @@
             <groupId>com.weibo</groupId>
             <artifactId>motan-transport-netty4</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.weibo</groupId>-->
-<!--            <artifactId>motan-registry-consul</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.weibo</groupId>
             <artifactId>motan-registry-zookeeper</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.weibo</groupId>-->
-<!--            <artifactId>motan-protocol-yar</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>com.weibo</groupId>-->
-<!--            <artifactId>motan-protocol-grpc</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <artifactId>protobuf-java</artifactId>-->
-<!--            <groupId>com.google.protobuf</groupId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.weibo</groupId>
             <artifactId>motan-protocol-restful</artifactId>
@@ -190,10 +202,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.weibo</groupId>-->
-<!--            <artifactId>serialization-extension</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
@@ -201,6 +209,18 @@
         <dependency>
             <artifactId>slf4j-api</artifactId>
             <groupId>org.slf4j</groupId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
     </dependencies>
 

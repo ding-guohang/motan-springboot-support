@@ -1,0 +1,13 @@
+.classpath
+.project
+.settings
+.checkstyle
+.idea/*
+bin
+.DS_Store
+/target/
+*/target/
+/target-eclipse/
+*.iml
+/.idea
+/LOG_HOME_IS_UNDEFINED/

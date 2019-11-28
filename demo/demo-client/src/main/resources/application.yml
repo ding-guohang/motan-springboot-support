@@ -1,0 +1,16 @@
+spring.application.name: motan-springboot-support-demo-client
+
+#jetty配置
+server:
+  compression:
+    enabled: true
+  servlet:
+    context-path: /
+
+y-motan:
+  protocol: zookeeper
+  address: 127.0.0.1:2181
+  application: motan-demo
+  basePackages: com.y.motan.demo
+  group: demo-motan-rpc
+  module: demo-module
