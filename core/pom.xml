@@ -8,8 +8,9 @@
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>core</artifactId>
+
+    <name>motan-springboot-support-core</name>
 
     <dependencies>
         <dependency>
