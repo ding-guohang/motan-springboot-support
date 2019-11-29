@@ -29,61 +29,6 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                    <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                        <encoding>UTF-8</encoding>
-                        <optimize>true</optimize>
-                        <!-- 3.6.2加入这个参数，就不需要用compilerArgument往里怼了 -->
-                        <parameters>true</parameters>
-                        <!-- 但是没有测试test时是不是也能生效，于是先保留下下面这两个吧 -->
-                        <compilerArgument>-parameters</compilerArgument>
-                        <testCompilerArgument>-parameters</testCompilerArgument>
-                    </configuration>
-                    <executions>
-                        <!-- Replacing default-compile as it is treated specially by maven -->
-                        <execution>
-                            <id>default-compile</id>
-                            <phase>none</phase>
-                        </execution>
-                        <!-- Replacing default-testCompile as it is treated specially by maven -->
-                        <execution>
-                            <id>default-testCompile</id>
-                            <phase>none</phase>
-                        </execution>
-                        <execution>
-                            <id>java-compile</id>
-                            <phase>compile</phase>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>java-test-compile</id>
-                            <phase>test-compile</phase>
-                            <goals>
-                                <goal>testCompile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 
 </project>
